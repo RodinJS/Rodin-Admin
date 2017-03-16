@@ -2,14 +2,6 @@
   "name": "rodin-cms",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "dev": "NODE_ENV=dev pm2 start keystone.js",
-    "stage": "NODE_ENV=stage pm2 start keystone.js",
-    "production": "NODE_ENV=production pm2 start keystone.js",
-    "stopAll": "pm2 stop all",
-    "deleteAll": "pm2 delete all",
-    "restartAll": "pm2 restart all"
-  },
   "dependencies": {
     "async": "^1.5.0",
     "dotenv": "^2.0.0",
@@ -32,6 +24,12 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "node keystone.js"
+    "start": "node keystone.js",
+    "dev": "NODE_ENV=dev pm2 start keystone.js",
+    "stage": "NODE_ENV=stage pm2 start keystone.js",
+    "production": "NODE_ENV=production pm2 start keystone.js",
+    "stopAll": "pm2 stop all",
+    "deleteAll": "pm2 delete all",
+    "restartAll": "pm2 restart all"
   }
 }
