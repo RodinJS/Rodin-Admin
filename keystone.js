@@ -1,13 +1,14 @@
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
 
-const configFile = process.NODE_ENV || 'local';
+const configFile = process.env.NODE_ENV || 'local';
 
-console.log('ENV', configFile);
 require('dotenv').config({path:`./env/.${configFile}`});
 
 // Require keystone
 const keystone = require('keystone');
+const jwt = require('jsonwebtoken');
+const JWTSECRET = '4DNSrMPuQ3Y3McBu96wd2GzGheDXuft8gDqLEQVWHnXQfcaGFtM2ZBgyNYzPN7CK';
 
 
 // Initialise Keystone with your project's configuration.
@@ -55,6 +56,25 @@ keystone.set('nav', {
 	'cms_menus': ['cms_menus', 'cms_menuitems']
 });
 
+/*
+keystone.set('signin redirect', (user, req, res) =>{
+
+	jwt.sign({ //jwt.verify
+		username: user.username,
+		role: user.role,
+		random: user.password.slice(-15)
+	}, JWTSECRET, {
+		expiresIn: "1m"
+	});
+
+	console.log(user);
+	/!*var url = (user.isAdmin) ? '/keystone' : '/whatever/url/you/want';
+	res.redirect(url);*!/
+});
+*/
+
 // Start Keystone to connect to your database and initialise the web server
 
+
+console.log('ENV', configFile);
 keystone.start();
