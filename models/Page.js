@@ -19,6 +19,7 @@ Page.add({
 	image: { type: Types.CloudinaryImage },
 	slug:{type:String, from: 'title', unique: true},
 	putOnFooter:{type:Types.Boolean},
+	externalURL:{type:Types.Url},
 	content: {
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 },
