@@ -12,6 +12,7 @@ const Projects = new keystone.List('projects', {
 });
 
 Projects.add({
+	state: { type: Types.Select, options: 'pending, approved, rejected', default: 'pending', index: true },
 	name: { type: String, index: true, required: true },
 	root: { type: String, readonly: true, noedit:true},
 	owner: { type: String, readonly: true, noedit:true},
@@ -23,10 +24,8 @@ Projects.add({
 	public: { type: Types.Boolean},
 	publishedPublic:{type: Types.Boolean, noedit:true},
 	publishDate: { type: Types.Date, readonly:true, noedit:true},
-	approved:{type:Types.Boolean},
-	approvedDate: { type: Types.Date, default:Date.now(), readonly:true, noedit:true, dependsOn: { approved: true } },
 
 });
 
-Projects.defaultColumns = 'name, owner, allowProdApp';
+Projects.defaultColumns = 'name, root, owner, updatedAt, state';
 Projects.register();
