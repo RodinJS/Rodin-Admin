@@ -18,5 +18,9 @@
 // Site Styles
 // ===========
 
+@import "fonts.scss";
 // Add your own site style includes here
-@import "site/layout";
+@import "site/layout.scss";
+@import "site/header.scss";
+@import "site/footer.scss";
+@import "site/blog.scss";
