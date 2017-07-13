@@ -13,14 +13,10 @@ block content
 						ul
 							each tag in data.post.tags
 								li
-									a(href=`/blog/${tag.name}`)=tag.name
+									a(href=`/${tag.name}`)=tag.name
 				.share-section
 					ul.shareing
-						//li.post-link
-						//	img(src='/icons/link.svg')
 						li
-							//.fb-share(data-href=domain + 'blog/post/' + filters.post, data-layout='button_count', data-size='small', data-mobile-iframe='true')
-							//	a.fb-xfbml-parse-ignore(target='_blank', href='https://www.facebook.com/sharer/sharer.php?u=' + domain + 'blog/' + filters.post + '&src=sdkpreparse')
 							.fb-share(data-layout='button_count', data-size='small', data-mobile-iframe='true')
 								a.fb-xfbml-parse-ignore(target='_blank', href='https://www.facebook.com/sharer/sharer.php?u&src=sdkpreparse')
 									img(src='/icons/facebook.svg')

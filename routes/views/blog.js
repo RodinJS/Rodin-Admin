@@ -19,31 +19,7 @@ exports = module.exports = function (req, res) {
 		categories: [],
 	};
 	locals.apiRoute = ENV.parsed.API;
-	// Load all categories
-	// view.on('init', function (next) {
-	// 	keystone.list('PostCategory').model.find().sort('name').exec(function (err, results) {
-    //
-	// 		if (err || !results.length) {
-	// 			return next(err);
-	// 		}
-    //
-	// 		locals.data.categories = results;
-    //
-	// 		// Load the counts for each category
-	// 		async.each(locals.data.categories, function (category, next) {
-    //
-	// 			keystone.list('Post').model.count().where('categories').in([category.id]).exec(function (err, count) {
-	// 				category.postCount = count;
-	// 				next(err);
-	// 			});
-    //
-	// 		}, function (err) {
-	// 			next(err);
-	// 		});
-	// 	});
-	// });
-
-	// Load the current category filter
+	//Load posts by tag name
 	view.on('init', function (next) {
 		if (req.params.tag) {
 			keystone.list('Tags').model.findOne({slug: locals.filters.tag.toLowerCase()}).exec(function (err, result) {
