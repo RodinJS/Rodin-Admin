@@ -3,7 +3,7 @@
 
 const configFile = process.env.NODE_ENV || 'local';
 
-require('dotenv').config({path:`./env/.${configFile}`});
+require('dotenv').config({ path: `./env/.${configFile}` });
 
 // Require keystone
 const keystone = require('keystone');
@@ -29,6 +29,16 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'cms_users',
+	'wysiwyg images': true,
+	'wysiwyg cloudinary images': true,
+	'wysiwyg additional plugins': "media",
+	'wysiwyg additional buttons': 'media mediamebed',
+	'wysiwyg additional options': {
+		'external_plugins': {
+			'uploadimage': '/js/uploadimage/plugin.min.js',
+			'charactercount': '/js/charcount/plugin.min.js',
+		},
+	},
 });
 
 // Load your project's Models
@@ -52,26 +62,25 @@ keystone.set('nav', {
 	posts: ['posts', 'post-categories'],
 	galleries: 'galleries',
 	enquiries: 'enquiries',
-	"cms_users": 'cms_users',
-	'cms_menus': ['cms_menus', 'cms_menuitems']
+	'cms_users': 'cms_users',
+	'cms_menus': ['cms_menus', 'cms_menuitems'],
 });
-
 /*
-keystone.set('signin redirect', (user, req, res) =>{
+ keystone.set('signin redirect', (user, req, res) =>{
 
-	jwt.sign({ //jwt.verify
-		username: user.username,
-		role: user.role,
-		random: user.password.slice(-15)
-	}, JWTSECRET, {
-		expiresIn: "1m"
-	});
+ jwt.sign({ //jwt.verify
+ username: user.username,
+ role: user.role,
+ random: user.password.slice(-15)
+ }, JWTSECRET, {
+ expiresIn: "1m"
+ });
 
-	console.log(user);
-	/!*var url = (user.isAdmin) ? '/keystone' : '/whatever/url/you/want';
-	res.redirect(url);*!/
-});
-*/
+ console.log(user);
+ /!*var url = (user.isAdmin) ? '/keystone' : '/whatever/url/you/want';
+ res.redirect(url);*!/
+ });
+ */
 
 // Start Keystone to connect to your database and initialise the web server
 

@@ -20,6 +20,7 @@ const KeystoneMenus = require('keystone-menus');
 	or replace it with your own templates / logic.
 */
 exports.initLocals = function (req, res, next) {
+	res.locals.hidden = req.url.startsWith('/blog');
 	res.locals.navLinks = [
 		{ label: 'Home', key: 'home', href: '/' },
 		{ label: 'Blog', key: 'blog', href: '/blog' },
