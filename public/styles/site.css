@@ -5994,6 +5994,7 @@ h1.title {
 
 .blog-section .blog-img {
   min-height: 340px;
+  max-height: 340px;
   width: 100%; }
 
 .blog-section .sign-up-btn {
@@ -6095,13 +6096,13 @@ h1.title {
     font-size: 16px;
     margin-top: 25px;
     line-height: 1.7;
-    height: 137px;
+    max-height: 115px;
     overflow: hidden;
     word-wrap: break-word;
     text-overflow: ellipsis; }
     .blog-section .blog-info .blog-desc-featured p {
       text-overflow: ellipsis;
-      height: 137px;
+      max-height: 137px;
       word-wrap: break-word;
       overflow-y: hidden; }
     .blog-section .blog-info .blog-desc-featured a:hover {
@@ -6136,8 +6137,8 @@ h1.title {
     left: 40px; }
     .blog-section .blog-actions-content .blog-actions a {
       color: #008BF2; }
-    .blog-section .blog-actions-content .blog-actions:hover a {
-      color: white; }
+      .blog-section .blog-actions-content .blog-actions a:hover {
+        color: white; }
 
 .blog-section .blog-item-content .tag-section ul {
   padding-left: 0px;
