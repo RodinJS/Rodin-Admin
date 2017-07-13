@@ -7,6 +7,7 @@ iframe, pre {
 .navbar-brand {
   position: absolute;
 }
+
 a {
   text-decoration: none;
   color: $color-primary;
@@ -81,6 +82,7 @@ h1.title {
 .blog-section {
   .blog-img {
 	min-height: 340px;
+	max-height: 340px;
 	width: 100%;
   }
   .sign-up-btn {
@@ -203,7 +205,7 @@ h1.title {
 	.blog-desc-featured {
 	  p {
 		text-overflow: ellipsis;
-		height: 137px;
+		max-height: 137px;
 		word-wrap: break-word;
 		overflow-y: hidden;
 	  }
@@ -217,11 +219,11 @@ h1.title {
 	  font-size: 16px;
 	  margin-top: 25px;
 	  line-height: 1.7;
-	  height: 137px;
+	  max-height: 115px;
 	  overflow: hidden;
 	  word-wrap: break-word;
 	  text-overflow: ellipsis;
-	
+
 	  iframe {
 		max-width: 100%;
 		height: 480px;
@@ -261,12 +263,11 @@ h1.title {
 	  left: 40px;
 	  a {
 		color: $color-primary;
-	  }
-	  &:hover {
-		a {
+		&:hover {
 		  color: white;
 		}
 	  }
+
 	}
   }
   .blog-item-content {
@@ -338,7 +339,7 @@ h1.title {
 		  }
 		}
 	  }
-	  
+
 	  margin-top: 24px;
 	  img {
 		width: 32px;
