@@ -15,7 +15,7 @@ exports = module.exports = function (req, res) {
 	locals.data = {
 		posts: [],
 	};
-	locals.domain = ENV.parsed.HST;
+	locals.domain = ENV.parsed.DOMAIN;
 	// Load the current post
 	view.on('init', function (next) {
 

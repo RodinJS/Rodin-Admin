@@ -17,8 +17,8 @@ block content
 				.share-section
 					ul.shareing
 						li
-							.fb-share(data-layout='button_count', data-size='small', data-mobile-iframe='true')
-								a.fb-xfbml-parse-ignore(target='_blank', href='https://www.facebook.com/sharer/sharer.php?u&src=sdkpreparse')
+							.fb-share(data-href=domain, data-layout='button_count', data-size='small', data-mobile-iframe='false')
+								a.fb-xfbml-parse-ignore(target='_blank', href='https://www.facebook.com/sharer/sharer.php?u=' + domain + '&src=sdkpreparse')
 									img(src='/icons/facebook.svg')
 						li
 							a.twitter-share-button(href='https://twitter.com/intent/tweet', target="_blank")
