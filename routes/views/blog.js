@@ -19,6 +19,7 @@ exports = module.exports = function (req, res) {
 		categories: [],
 	};
 	locals.apiRoute = ENV.parsed.API;
+	locals.hst = ENV.parsed.hst;
 	//Load posts by tag name
 	view.on('init', function (next) {
 		if (req.params.tag) {

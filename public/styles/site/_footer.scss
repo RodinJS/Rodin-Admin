@@ -26,10 +26,14 @@
 	  color: #DEDEDE;
 	  font-size: 22px;
 	  margin-left: 7px;
+	  &:hover {
+		color: #008BF2 !important;
+	  }
 	}
 
   }
 }
+
 .copyright {
   float: left;
   font-family: 'SF UI Display';
@@ -56,6 +60,7 @@
 	}
   }
 }
+
 .footer-menu-wrapper {
   width: 100%;
   height: 12px;
