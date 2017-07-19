@@ -5900,6 +5900,8 @@ button.close {
     color: #DEDEDE;
     font-size: 22px;
     margin-left: 7px; }
+    .social-list li a:hover {
+      color: #008BF2 !important; }
 
 .copyright {
   float: left;

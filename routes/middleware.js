@@ -9,7 +9,9 @@
  */
 const _ = require('lodash');
 const KeystoneMenus = require('keystone-menus');
+const configFile = process.env.NODE_ENV || 'local';
 
+const ENV = require('dotenv').config({ path: `./env/.${configFile}` });
 
 
 /**
@@ -28,7 +30,7 @@ exports.initLocals = function (req, res, next) {
 		{ label: 'Contact', key: 'contact', href: '/contact' },
 	];
 	res.locals.user = req.user;
-
+	res.locals.HST =  ENV.parsed.HST;
 	next();
 };
 

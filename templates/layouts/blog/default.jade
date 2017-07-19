@@ -12,13 +12,17 @@ html
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 		//meta(property='og:url', content='http://www.your-domain.com/your-page.html')
 		//meta(property='og:type', content='website')
-		//meta(property='og:title', content='RODIN BLOG')
-		//meta(property='og:description', content='Your description')
-		//meta(property='og:image', content='http://www.your-domain.com/path/image.jpg')
+		meta(property='og:title', content='RODIN BLOG')
+		meta(property='og:description', content='Your description')
+		meta(property='og:image', content='/images/banner.jpg')
 
-		title= title || 'Rodin CMS'
-		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+		title= 'Blog — Rodin'
+		link(rel="shortcut icon", href="/images/favicon/favicon-32x32.png", type="image/x-icon")
 		link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+		
+		link(rel='icon', type='image/png', href='/images/favicon/favicon-32x32.png', sizes='32x32')
+		link(rel='icon', type='image/png', href='/images/favicon/favicon-16x16.png', sizes='16x16')
+
 		//- Customise the stylesheet for your site by editing /public/styles/site.sass
 		link(href="/styles/site.css", rel="stylesheet")
 
