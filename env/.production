@@ -5,4 +5,4 @@ PORT=5000
 API=https://rodin.io/api
 HST=https://rodin.io/
 DOMAIN=138.197.41.119:5000
-
+BLOG_URL=https://blog.rodin.io/

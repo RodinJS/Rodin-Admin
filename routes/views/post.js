@@ -16,6 +16,7 @@ exports = module.exports = function (req, res) {
 		posts: [],
 	};
 	locals.domain = ENV.parsed.DOMAIN;
+	locals.blog_url = ENV.parsed.blog_url;
 	// Load the current post
 	view.on('init', function (next) {
 
@@ -27,6 +28,11 @@ exports = module.exports = function (req, res) {
 			.populate('author categories tags');
 
 		q.exec(function (err, result) {
+			if(!result) {
+				return res.redirect('/')
+			}
+			locals.blog_url = ENV.parsed.BLOG_URL;
+			console.log(locals.blog_url)
 			locals.data.post = result;
 			next(err);
 		});
