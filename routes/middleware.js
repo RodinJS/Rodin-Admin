@@ -32,6 +32,7 @@ exports.initLocals = function (req, res, next) {
 	res.locals.user = req.user;
 	res.locals.HST =  ENV.parsed.HST;
 	res.locals.blog_url = ENV.parsed.BLOG_URL;
+	res.locals.current = req.url
 	next();
 };
 
