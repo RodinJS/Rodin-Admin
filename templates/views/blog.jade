@@ -22,7 +22,7 @@ block content
 									if post.link
 										a.btn.sign-up-btn(href=post.link ? post.link : '', target="_blank") Go To Experience
 									else
-										a.btn.sign-up-btn Go To Experience
+										a.btn.sign-up-btn(target="_blank") Go To Experience
 
 		if data.posts.random.length
 			each post,key in locals.data.posts.random

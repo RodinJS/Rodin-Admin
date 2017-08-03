@@ -21,9 +21,9 @@ block content
 								a.fb-xfbml-parse-ignore(target='_blank', href='https://www.facebook.com/sharer/sharer.php?u=' + domain + '&src=sdkpreparse')
 									img(src='/icons/facebook.svg')
 						li
-							a.twitter-share-button(href='https://twitter.com/intent/tweet', target="_blank")
+							a(href='https://twitter.com/share', data-size='large', data-target='_blank', data-url=blog_url +'post/'+ data.post._id, data-hashtags=data.post.tags[0], data-via='Reinchard92', data-related='twitterapi,twitter')
 								img(src='/icons/twitter.svg')
-							
+
 				.comment-section
-					.fb-comments(data-width='636', data-colorscheme='light', data-numposts='5')
+					.fb-comments(data-width='636', data-href=blog_url +'post/'+ data.post._id, data-colorscheme='light',data-mobile="true", data-numposts='5')
 	script(src='/js/jquery/jquery-1.11.3.min.js')

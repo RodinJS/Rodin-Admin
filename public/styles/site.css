@@ -5933,6 +5933,17 @@ button.close {
     display: table;
     content: ""; }
 
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  background-color: #09192E;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; }
+
 iframe, pre {
   border: none; }
 
@@ -6000,6 +6011,7 @@ h1.title {
   width: 100%; }
 
 .blog-section .sign-up-btn {
+  color: #AAAAAA !important;
   padding: 10px 20px;
   border-width: 1px;
   max-width: 150px;
@@ -6012,9 +6024,11 @@ h1.title {
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
+  border-width: 2px;
   background: transparent;
   transition: all .3s; }
   .blog-section .sign-up-btn:hover {
+    color: white !important;
     border-color: #0d98ff;
     background-color: #0d98ff; }
 
@@ -6214,7 +6228,7 @@ h1.title {
       text-decoration: none; }
 
 .blog-section .blog-item-content .blog-info .blog-desc {
-  font-size: 21px; }
+  font-size: 18px; }
   .blog-section .blog-item-content .blog-info .blog-desc img {
     width: 100%;
     height: auto; }

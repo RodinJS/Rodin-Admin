@@ -10,8 +10,9 @@ html
 		meta(charset="utf-8")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
-		//meta(property='og:url', content='http://www.your-domain.com/your-page.html')
-		//meta(property='og:type', content='website')
+		meta(property='fb:app_id', content='214577345643265')
+		meta(property='og:url', content='http://blog.rodin.io')
+		meta(property='og:type', content='website')
 		meta(property='og:title', content='RODIN BLOG')
 		meta(property='og:description', content='Your description')
 		meta(property='og:image', content='/images/banner.jpg')
@@ -37,13 +38,10 @@ html
 				if (d.getElementById(id)) return;
 				js = d.createElement(s);
 				js.id = id;
-				js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=240407429801919";
+				js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=214577345643265";
 				fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));
-
-
-
-
+			
 		//- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
 		//- Safely remove this block if you are not targeting IE8
 		//-[if lt IE 9]
@@ -69,7 +67,7 @@ html
 					.container-fluid.page.static
 						.row.title-section
 							h1.title.text-center
-								a(href='/blog/') BLOG
+								a(href='/') BLOG
 							span.line
 					//- NOTE:
 					//- There is no .container wrapping class around body blocks to allow more flexibility in design.
