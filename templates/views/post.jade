@@ -18,7 +18,7 @@ block content
 					ul.shareing
 						li
 							.fb-share(data-href=domain, data-layout='button_count', data-size='small', data-mobile-iframe='false')
-								a.fb-xfbml-parse-ignore(target='_blank', href='https://www.facebook.com/sharer/sharer.php?u=' + domain + '&src=sdkpreparse')
+								a.fb-xfbml-parse-ignore(target='_blank', href='https://www.facebook.com/sharer/sharer.php?u=' + blog_url +'post/'+ data.post._id + '&src=sdkpreparse')
 									img(src='/icons/facebook.svg')
 						li
 							a(href='https://twitter.com/share', data-size='large', data-target='_blank', data-url=blog_url +'post/'+ data.post._id, data-hashtags=data.post.tags[0], data-via='Reinchard92', data-related='twitterapi,twitter')
