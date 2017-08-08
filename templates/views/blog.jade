@@ -4,37 +4,48 @@ extends ../layouts/blog/default
 block content
 	//.container.blog-section(style={'margin-top': '60px'})
 	.container.blog-section
-		if data.posts.featured.length
-			each post,key in locals.data.posts.featured
-				.col-md-offset-1.col-md-10(style=key === 0 ? 'margin-top: 60px;' : 'margin-top: 3px;')
-					.col-md-6.col-sm-12
-						.row
-							img.blog-img.img-responsive(src=post.image.url, alt='')
-					.col-md-6.col-sm-12
-						.row
-							.blog-info-transparent
-							.col-md-10.col-sm-10.blog-info
-								p.blog-date=moment(post.publishedDate).format('LL')
-								p.blog-title=post.title
-								div.blog-desc-featured!=post.content.extended
-							.blog-actions-content
-								.blog-actions
-									if post.link
-										a.btn.sign-up-btn(href=post.link ? post.link : '', target="_blank") Go To Experience
-									else
-										a.btn.sign-up-btn(target="_blank") Go To Experience
+		.row
+			if data.posts.featured.length
+				each post,key in locals.data.posts.featured
+					.col-md-offset-1.col-md-10.col-xs-12.col-sm-12(style=key === 0 ? 'margin-top: 15px;' : 'margin-top: 15px;')
+						.col-xs-12.col-sm-12.col-md-6
+							.row
+								img.blog-img.img-responsive(src=post.image.url, alt='')
+						.col-xs-12.col-sm-12.col-md-6.blog-description-content
+							.row
+								.blog-info-transparent
+								.col-md-10.col-sm-10.blog-info
+									p.blog-date=moment(post.publishedDate).format('LL')
+									p.blog-title=post.title
+									div.blog-desc-featured!=post.content.extended
+								.col-md-10.blog-actions-content
+									.row
+										.blog-actions
+											if post.link
+												a.btn.sign-up-btn(href=post.link ? post.link : '', target="_blank") Go To Experience
+											else
+												a.btn.sign-up-btn(target="_blank") Go To Experience
 
-		if data.posts.random.length
-			each post,key in locals.data.posts.random
-				.col-md-12.col-sm-12.col-lg-12.blog-item-content
-					.col-md-offset-2.col-md-8.col-sm-12.blog-info
-						p.blog-date=moment(post.publishedDate).format('LL')
-						h1.blog-title
-							a(href=`/post/${post._id}`)=post.title
-						div.blog-desc!=post.content.extended
-						if post.tags
-							.tag-section
-								ul
-									each tag in post.tags
-										li
-											a(href=`/${tag.name}`)=tag.name
+			if data.posts.random.length
+				each post,key in locals.data.posts.random
+					.col-xs-12.col-sm-12.col-md-12.col-lg-12.blog-item-content
+						.col-md-offset-2.col-md-8.col-sm-12.blog-info
+							p.blog-date=moment(post.publishedDate).format('LL')
+							h1.blog-title
+								a(href=`/post/${post._id}`)=post.title
+							div.blog-desc!=post.content.extended
+							if post.tags
+								.tag-section
+									ul
+										each tag in post.tags
+											li
+												a(href=`/${tag.name}`)=tag.name
+							.share-section
+								ul.shareing
+									li
+										.fb-share(data-href=domain, data-layout='button_count', data-size='small', data-mobile-iframe='false')
+											a.fb-xfbml-parse-ignore(target='_blank', href='https://www.facebook.com/sharer/sharer.php?u=' + blog_url +'post/'+ post._id + '&src=sdkpreparse')
+												img(src='/icons/facebook.svg')
+									li
+										a(href='https://twitter.com/share', data-size='large', data-target='_blank', data-url=blog_url +'post/'+ post._id, data-hashtags=post.tags[0], data-via='Reinchard92', data-related='twitterapi,twitter')
+											img(src='/icons/twitter.svg')
