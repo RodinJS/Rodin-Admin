@@ -3,27 +3,29 @@ extends ../layouts/blog/default
 
 block content
 	.container.blog-section
-		.col-md-12.blog-item-content
-			.col-offset-2.col-sm-offset-2.col-md-8.col-sm-8.blog-info
-				p.blog-date=moment(data.post.publishedDate).format('LL')
-				h1.blog-title=data.post.title
-				div.blog-desc!=data.post.content.extended
-				if data.post.tags.length > 0
-					.tag-section
-						ul
-							each tag in data.post.tags
+		.row
+			.col-md-12.blog-item-content
+				.row
+					.col-offset-2.col-sm-offset-2.col-md-8.col-sm-8.blog-info
+						p.blog-date=moment(data.post.publishedDate).format('LL')
+						h1.blog-title=data.post.title
+						div.blog-desc!=data.post.content.extended
+						if data.post.tags.length > 0
+							.tag-section
+								ul
+									each tag in data.post.tags
+										li
+											a(href=`/${tag.name}`)=tag.name
+						.share-section
+							ul.shareing
 								li
-									a(href=`/${tag.name}`)=tag.name
-				.share-section
-					ul.shareing
-						li
-							.fb-share(data-href=domain, data-layout='button_count', data-size='small', data-mobile-iframe='false')
-								a.fb-xfbml-parse-ignore(target='_blank', href='https://www.facebook.com/sharer/sharer.php?u=' + blog_url +'post/'+ data.post._id + '&src=sdkpreparse')
-									img(src='/icons/facebook.svg')
-						li
-							a(href='https://twitter.com/share', data-size='large', data-target='_blank', data-url=blog_url +'post/'+ data.post._id, data-hashtags=data.post.tags[0], data-via='Reinchard92', data-related='twitterapi,twitter')
-								img(src='/icons/twitter.svg')
+									.fb-share(data-href=domain, data-layout='button_count', data-size='small', data-mobile-iframe='false')
+										a.fb-xfbml-parse-ignore(target='_blank', href='https://www.facebook.com/sharer/sharer.php?u=' + blog_url +'post/'+ data.post._id + '&src=sdkpreparse')
+											img(src='/icons/facebook.svg')
+								li
+									a(href='https://twitter.com/share', data-size='large', data-target='_blank', data-url=blog_url +'post/'+ data.post._id, data-hashtags=data.post.tags[0], data-via='Reinchard92', data-related='twitterapi,twitter')
+										img(src='/icons/twitter.svg')
 
-				.comment-section
-					.fb-comments(data-width='636', data-href=blog_url +'post/'+ data.post._id, data-colorscheme='light',data-mobile="true", data-numposts='5')
+						.comment-section
+							.fb-comments(data-width='636', data-href=blog_url +'post/'+ data.post._id, data-colorscheme='light',data-mobile="true", data-numposts='5')
 	script(src='/js/jquery/jquery-1.11.3.min.js')

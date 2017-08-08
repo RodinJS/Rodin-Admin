@@ -16,7 +16,7 @@ exports = module.exports = function (req, res) {
 		posts: [],
 	};
 	locals.domain = ENV.parsed.DOMAIN;
-	locals.blog_url = ENV.parsed.blog_url;
+	locals.blog_url = ENV.parsed.BLOG_URL;
 	// Load the current post
 	view.on('init', function (next) {
 
