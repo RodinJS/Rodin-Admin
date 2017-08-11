@@ -17,7 +17,7 @@ Post.add({
 	state: {type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true},
 	author: {type: Types.Relationship, ref: 'cms_users', index: true},
 	publishedDate: {type: Types.Date, index: true, dependsOn: {state: 'published'}},
-	image: {type: Types.CloudinaryImage},
+	image: {type: Types.CloudinaryImage, label : 'image size > 472x316'},
 	tags: {type: Types.Relationship, ref: 'Tags', many: true},
 	content: {
 		brief: {type: Types.Html, wysiwyg: true, height: 150},

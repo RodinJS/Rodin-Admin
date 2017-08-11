@@ -6010,7 +6010,7 @@ h1.title {
     background-color: #0d98ff; }
 
 .blog-section .blog-img {
-  max-height: 315px;
+  height: 316px;
   width: 100%; }
 
 .blog-section .sign-up-btn {
@@ -6255,7 +6255,7 @@ h1.title {
   .blog-item-content {
     margin-top: 30px; }
   .blog-img {
-    max-height: 100% !important; } }
+    height: 100% !important; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .blog-img {
