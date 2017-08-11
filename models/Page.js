@@ -24,7 +24,8 @@ Page.add({
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 },
 	},
-	//categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
+	category: {type: String}
+	// categories: { type: Types.Relationship, ref: 'PageCategory' },
 });
 
 Page.schema.virtual('content.full').get(function () {
