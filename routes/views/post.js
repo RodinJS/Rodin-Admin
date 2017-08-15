@@ -32,7 +32,6 @@ exports = module.exports = function (req, res) {
 				return res.redirect('/')
 			}
 			locals.blog_url = ENV.parsed.BLOG_URL;
-			console.log(locals.blog_url)
 			locals.data.post = result;
 			next(err);
 		});
