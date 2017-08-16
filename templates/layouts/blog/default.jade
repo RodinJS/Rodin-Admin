@@ -13,7 +13,7 @@ html
 		meta(property='fb:app_id', content='240407429801919')
 		meta(property='og:url', content=blog_url + current)
 		meta(property='og:type', content='website')
-		meta(property='og:title', content='RODIN BLOG')
+		meta(property='og:title', content='WebVR/AR Blog by Rodin')
 		meta(property='og:description', content='THE FASTEST WAY TO BUILD INTERACTIVE VR EXPERIENCES')
 		meta(property='og:image', content=blog_url + 'images/banner.jpg')
 
@@ -33,24 +33,14 @@ html
 
 		#fb-root
 		script.
-			window.fbAsyncInit = function () {
-				FB.init({
-					appId: '240407429801919',
-					xfbml: true,
-					version: 'v2.10'
-				});
-				FB.AppEvents.logPageView();
-			};
-			(function (d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) {
-					return;
-				}
-				js = d.createElement(s);
-				js.id = id;
-				js.src = "//connect.facebook.net/en_US/sdk.js";
-				fjs.parentNode.insertBefore(js, fjs);
+			(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=214577345643265";
+			fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));
+
 
 
 
