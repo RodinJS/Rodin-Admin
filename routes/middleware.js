@@ -23,7 +23,7 @@ const ENV = require('dotenv').config({ path: `./env/.${configFile}` });
 */
 exports.initLocals = function(req, res, next) {
     console.log(req.headers[
-        'x-accses-token'
+        'x-access-token'
     ])
 
     res.locals.hidden = req.url.startsWith('/blog');
