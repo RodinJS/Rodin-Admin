@@ -26,7 +26,7 @@ const ENV = require('dotenv').config({ path: `./env/.${configFile}` });
 exports.initLocals = function (req, res, next) {
     var view = new keystone.View(req, res);
     let cookies = parseCookies(req);
-    res.locals.isAuthenticated = !!(cookies['x-access-token']);
+    res.locals.isAuthenticated = !!(cookies['token']);
 
     var q = keystone.list('cms_menu').model.aggregate([{ $unwind: { path: "$items", "preserveNullAndEmptyArrays": true } }, {
         $lookup: {
