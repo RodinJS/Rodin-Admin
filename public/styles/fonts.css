@@ -1,29 +1,28 @@
-@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,700';
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto:400,500,700");
 @font-face {
-  font-family: 'SF UI Display';
-  src: url("../../fonts/SF/SFUIDisplay-Regular.eot");
-  src: local("SF UI Display Regular"), local("SFUIDisplay-Regular"), url("../../fonts/SF/SFUIDisplay-Regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/SF/SFUIDisplay-Regular.woff") format("woff"), url("../../fonts/SF/SFUIDisplay-Regular.ttf") format("truetype");
+  font-family: 'rodin-icon';
+  src: url("../fonts/rodin-icon.eot?iwy2rp");
+  src: url("../fonts/rodin-icon.eot?iwy2rp#iefix") format("embedded-opentype"), url("../fonts/rodin-icon.ttf?iwy2rp") format("truetype"), url("../fonts/rodin-icon.woff?iwy2rp") format("woff"), url("../fonts/rodin-icon.svg?iwy2rp#rodin-icon") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'SF UI Display';
-  src: url("../../fonts/SF/SFUIDisplay-Semibold.eot");
-  src: local("SF UI Display Semibold"), local("SFUIDisplay-Semibold"), url("../../fonts/SF/SFUIDisplay-Semibold.eot?#iefix") format("embedded-opentype"), url("../../fonts/SF/SFUIDisplay-Semibold.woff") format("woff"), url("../../fonts/SF/SFUIDisplay-Semibold.ttf") format("truetype");
+  src: url("../fonts/SF/SFUIDisplay-Semibold.eot");
+  src: local("SF UI Display Semibold"), local("SFUIDisplay-Semibold"), url("../fonts/SF/SFUIDisplay-Semibold.eot?#iefix") format("embedded-opentype"), url("../fonts/SF/SFUIDisplay-Semibold.woff") format("woff"), url("../fonts/SF/SFUIDisplay-Semibold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal; }
 
 @font-face {
   font-family: 'SF UI Display';
-  src: url("../../fonts/SF/SFUIDisplay-Medium.eot");
-  src: local("SF UI Display Medium"), local("SFUIDisplay-Medium"), url("../../fonts/SF/SFUIDisplay-Medium.eot?#iefix") format("embedded-opentype"), url("../../fonts/SF/SFUIDisplay-Medium.woff") format("woff"), url("../../fonts/SF/SFUIDisplay-Medium.ttf") format("truetype");
+  src: url("../fonts/SF/SFUIDisplay-Medium.eot");
+  src: local("SF UI Display Medium"), local("SFUIDisplay-Medium"), url("../fonts/SF/SFUIDisplay-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/SF/SFUIDisplay-Medium.woff") format("woff"), url("../fonts/SF/SFUIDisplay-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal; }
 
 @font-face {
   font-family: 'RODIN';
-  src: url("../../fonts/icon/RODIN.eot?poo9e");
-  src: url("../../fonts/icon/RODIN.eot?poo9e#iefix") format("embedded-opentype"), url("../../fonts/icon/RODIN.ttf?poo9e") format("truetype"), url("../../fonts/icon/RODIN.woff?poo9e") format("woff"), url("../../fonts/icon/RODIN.svg?poo9e#RODIN") format("svg");
+  src: url("../fonts/icon/RODIN.eot?poo9e");
+  src: url("../fonts/icon/RODIN.eot?poo9e#iefix") format("embedded-opentype"), url("../fonts/icon/RODIN.ttf?poo9e") format("truetype"), url("../fonts/icon/RODIN.woff?poo9e") format("woff"), url("../fonts/icon/RODIN.svg?poo9e#RODIN") format("svg");
   font-weight: normal;
   font-style: normal; }

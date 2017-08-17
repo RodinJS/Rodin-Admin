@@ -9,6 +9,8 @@ $font-size-base: 14px;
 //== Colors
 //
 $bg-primary:                                          #09192E;
+$primary-color:                                       #008BF2;
+$drop-background:                                     #0C1F37;
 $color-primary:                                       #008BF2;
 $color-icon-primary:                                  $color-primary;
 $color-icon-secondary:                                #14273C;
@@ -28,3 +30,19 @@ $colorSemiWhite:      rgba(255, 255, 255, .5);
 $colorOrange:         #FF9A2B;
 $sectionBorder:       #3B3B3D;
 $icon-delete:        "\e90c";
+
+@mixin cf {
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+
+  &:after {
+    clear: both;
+  }
+
+  .lt-ie8 & {
+    zoom: 1;
+  }
+}

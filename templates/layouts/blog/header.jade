@@ -1,8 +1,95 @@
-// Created by Reinchard on 7/6/2017.
-
 .header-background
-.header-blog
+nav.navbar.navbar-default.main-navbar
 	.container
-		.navbar-header
-			a.logo.navbar-brand(href=HST)
-				img(alt='Rodin', src='/images/rodinLogo.svg')
+		.row.header-row
+			.navbar-header.col-md-2.col-sm-2
+				.row
+					button#burger-button.navbar-toggle(class='collapsed',data-target='#HeaderNavber', type='button', aria-expanded='false')
+						span.sr-only Toggle navigation
+						span.icon-bar.top
+						span.icon-bar.middle
+						span.icon-bar.bottom
+					a.navbar-brand(href=locals.HST)
+						img.img-responsive.header-logo(src='/images/general/logo.png', alt='Rodin')
+			#bs-example-navbar-collapse-1.col-md-10.col-sm-10
+				.row
+					.main-header-page-section.col-sm-8.col-md-8
+						.row
+							ul.nav.navbar-nav.main-header-bar
+								each menus in locals.menusList
+									div(style={display: 'inline-flex'})
+										if menus.menuitems.length === 0
+											li.drop-more
+												a(href=menus.href)=menus.name
+										else
+											li.dropdown.more-drop(data-uib-dropdown='', auto-close='outsideClick')
+												a(id=menus.slug, type='button', data-toggle='dropdown')=menus.name
+													span.hidden-xs(style={'margin-left': '10px'})
+														i.glyphicon.glyphicon-menu-down
+												ul.dropdown-menu.header-dropdown
+													ul.account-action-list
+														each item in menus.menuitems
+															li
+																a(href=item.href)=item.name
+					if !locals.isAuthenticated
+						.col-md-4.col-sm-4.actions-container
+							.row
+								ul.nav.navbar-nav.navbar-right.main-header-actions
+									li.hidden-xs
+										a.main-header-login(href=locals.HST + 'login') Login
+									li
+										a#idl.btn.sign-up-btn.sign-up-btn-non-sticky(href=locals.HST + 'register') Sign Up
+					else
+						.account-action.text-right.col-md-4.col-sm-4
+							.row
+								ul.user-dropdown
+									li.dropdown.account-dropdown(data-uib-dropdown='', auto-close='outsideClick')
+										a#accountLabel.btn-account(type='button', data-toggle='dropdown')
+											span.hidden-xs
+											span.accout-img-wrapper
+												span.account-img(style='background-image: url(/images/general/avatar.png);')
+											i.glyphicon.glyphicon-menu-down.hidden-xs
+										.dropdown-menu.dropdown-menu-new.dropdown-menu-edit.account-dropdown-menu(uib-dropdown-menu='')
+											ul.account-action-list
+												li
+													a(href=locals.HST + 'profile')
+														| Edit
+														| Profile
+												li
+													a.signout-link(href=locals.HST) Sign Out
+			.side-bar
+				.side-bar-background
+				#mySidenav.sidenav
+					ul.sidebar-hidden-content
+						if locals.isAuthenticated
+							li
+								a(href=locals.HST +'/dashboard') Dashboard
+						each menus in locals.menusList
+							div
+								if menus.menuitems.length === 0
+									li
+										if menus.href
+											a(href=menus.href)=menus.name
+								else
+									li.dropdown.drop-more
+										a=menus.name
+											i.rd.rd-angle-down
+										ul.dropdown-menu.dropdown-header
+											each item in menus.menuitems
+												li
+													a(href=item.href)=item.name
+						if !locals.isAuthenticated
+							li.text-center.signup-content
+								a.btn.sign-up-btn.sign-up-btn-non-sticky(href=locals.HST + 'register') Sign Up
+						else
+							li.text-center.signout-content
+								a.btn.sign-up-btn.sign-up-btn-non-sticky(href=locals.HST) Sign Out
+script(src='/js/jquery/jquery-1.11.3.min.js')
+script.
+	$("#burger-button").click(function (e) {
+	e.preventDefault();
+	$("body").toggleClass("scroll-prevent");
+	$("#burger-button").toggleClass("collapsed");
+	$("#mySidenav").toggleClass("nav-opened");
+	$(".side-bar-background").toggleClass("show-background")
+	});
