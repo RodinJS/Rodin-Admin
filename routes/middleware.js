@@ -22,7 +22,10 @@ const ENV = require('dotenv').config({ path: `./env/.${configFile}` });
 	or replace it with your own templates / logic.
 */
 exports.initLocals = function(req, res, next) {
-    console.log(req.headers.cookie)
+    console.log(req.headers[
+        'x-accses-token'
+    ])
+
     res.locals.hidden = req.url.startsWith('/blog');
     res.locals.navLinks = [
         { label: 'Home', key: 'home', href: '/' },
