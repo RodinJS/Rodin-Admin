@@ -51,7 +51,7 @@ exports.initLocals = function (req, res, next) {
 
     q.exec(function (err, result) {
         if (err) {
-            next(err);
+            return next(err);
         }
         if(res.locals.isAuthenticated) {
             let rpOptions = {
@@ -63,8 +63,8 @@ exports.initLocals = function (req, res, next) {
                 json: true
               };
               rp(rpOptions,function(error, data,  final) {
-                if(err) {
-                    next(err);
+                if(error) {
+                    return next(error);
                 }
                 let menuList = _.orderBy(result,['position'],['asc']);
                 res.locals.menusList = menuList;
@@ -79,7 +79,7 @@ exports.initLocals = function (req, res, next) {
                     { label: 'Gallery', key: 'gallery', href: '/gallery' },
                     { label: 'Contact', key: 'contact', href: '/contact' },
                 ];
-                next()
+                return next()
             })
         } else {
             let menuList = _.orderBy(result,['position'],['asc']);
@@ -94,7 +94,7 @@ exports.initLocals = function (req, res, next) {
                 { label: 'Gallery', key: 'gallery', href: '/gallery' },
                 { label: 'Contact', key: 'contact', href: '/contact' },
             ];
-            next()
+            return next()
         }
     
     });
