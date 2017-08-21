@@ -26,8 +26,10 @@ const ENV = require('dotenv').config({ path: `./env/.${configFile}` });
 exports.initLocals = function (req, res, next) {
     var view = new keystone.View(req, res);
     let cookies = parseCookies(req);
-    res.locals.isAuthenticated = !!(cookies['token']) && cookies['token'] !== 'null';
-
+    console.log((!!(cookies['token']) && cookies['token'] !== 'null'))
+    if (!!(cookies['token']) &&  (!!(cookies['token']) && cookies['token'] !== 'null')) {
+        res.locals.isAuthenticated = !!(cookies['token'])
+    }
     var q = keystone.list('cms_menu').model.aggregate([{ $unwind: { path: "$items", "preserveNullAndEmptyArrays": true } }, {
         $lookup: {
             "from": "cms_menuitems",
@@ -53,20 +55,20 @@ exports.initLocals = function (req, res, next) {
         if (err) {
             return next(err);
         }
-        if(res.locals.isAuthenticated) {
+        if (res.locals.isAuthenticated) {
             let rpOptions = {
                 method: 'GET',
                 uri: ENV.parsed.API + '/user/me',
                 headers: {
-                  'x-access-token': cookies['token']
+                    'x-access-token': cookies['token']
                 },
                 json: true
-              };
-              rp(rpOptions,function(error, data,  final) {
-                if(error) {
+            };
+            rp(rpOptions, function (error, data, final) {
+                if (error) {
                     return next(error);
                 }
-                let menuList = _.orderBy(result,['position'],['asc']);
+                let menuList = _.orderBy(result, ['position'], ['asc']);
                 res.locals.menusList = menuList;
                 res.locals.user = req.user;
                 res.locals.authUser = final.data;
@@ -82,7 +84,7 @@ exports.initLocals = function (req, res, next) {
                 return next()
             })
         } else {
-            let menuList = _.orderBy(result,['position'],['asc']);
+            let menuList = _.orderBy(result, ['position'], ['asc']);
             res.locals.menusList = menuList;
             res.locals.user = req.user;
             res.locals.HST = ENV.parsed.HST;
@@ -96,7 +98,7 @@ exports.initLocals = function (req, res, next) {
             ];
             return next()
         }
-    
+
     });
 };
 
