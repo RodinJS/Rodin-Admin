@@ -25,7 +25,7 @@ nav.navbar.navbar-default.main-navbar
 											li.dropdown.more-drop(data-uib-dropdown='', auto-close='outsideClick')
 												a(id=menus.slug, type='button', data-toggle='dropdown')=menus.name
 													span.hidden-xs(style={'margin-left': '10px'})
-														i.glyphicon.glyphicon-menu-down
+														i.fa.fa-caret-down
 												ul.dropdown-menu.header-dropdown
 													ul.account-action-list
 														each item in menus.menuitems
@@ -44,11 +44,11 @@ nav.navbar.navbar-default.main-navbar
 							.row
 								ul.user-dropdown
 									li.dropdown.account-dropdown(data-uib-dropdown='', auto-close='outsideClick')
-										a#accountLabel.btn-account(type='button', data-toggle='dropdown')
+										a#accountLabel.btn-account(type='button', data-toggle='dropdown')=locals.authUser.username
 											span.hidden-xs
 											span.accout-img-wrapper
 												span.account-img(style='background-image: url(/images/general/avatar.png);')
-											i.glyphicon.glyphicon-menu-down.hidden-xs
+											i.fa.fa-caret-down
 										.dropdown-menu.dropdown-menu-new.dropdown-menu-edit.account-dropdown-menu(uib-dropdown-menu='')
 											ul.account-action-list
 												li
@@ -56,7 +56,7 @@ nav.navbar.navbar-default.main-navbar
 														| Edit
 														| Profile
 												li
-													a.signout-link(href=locals.HST) Sign Out
+													a#logout.signout-link Sign Out
 			.side-bar
 				.side-bar-background
 				#mySidenav.sidenav
@@ -73,7 +73,7 @@ nav.navbar.navbar-default.main-navbar
 								else
 									li.dropdown.drop-more
 										a=menus.name
-											i.rd.rd-angle-down
+											i.fa.fa-caret-down
 										ul.dropdown-menu.dropdown-header
 											each item in menus.menuitems
 												li
@@ -83,8 +83,13 @@ nav.navbar.navbar-default.main-navbar
 								a.btn.sign-up-btn.sign-up-btn-non-sticky(href=locals.HST + 'register') Sign Up
 						else
 							li.text-center.signout-content
-								a.btn.sign-up-btn.sign-up-btn-non-sticky(href=locals.HST) Sign Out
+								a#logout.btn.sign-up-btn.sign-up-btn-non-sticky(href=locals.HST) Sign Out
 script(src='/js/jquery/jquery-1.11.3.min.js')
+script.
+	$('#logout').click(function(e){
+	$.cookie('token', null);
+	window.location.href = '/'
+	})
 script.
 	$("#burger-button").click(function (e) {
 	e.preventDefault();
