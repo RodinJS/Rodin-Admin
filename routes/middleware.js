@@ -10,9 +10,9 @@
 const _ = require('lodash');
 var keystone = require('keystone');
 
+const rp = require('request');
 const KeystoneMenus = require('keystone-menus');
 const configFile = process.env.NODE_ENV || 'local';
-
 const ENV = require('dotenv').config({ path: `./env/.${configFile}` });
 
 
@@ -26,7 +26,7 @@ const ENV = require('dotenv').config({ path: `./env/.${configFile}` });
 exports.initLocals = function (req, res, next) {
     var view = new keystone.View(req, res);
     let cookies = parseCookies(req);
-    res.locals.isAuthenticated = !!(cookies['token']);
+    res.locals.isAuthenticated = !!(cookies['token']) && cookies['token'] !== 'null';
 
     var q = keystone.list('cms_menu').model.aggregate([{ $unwind: { path: "$items", "preserveNullAndEmptyArrays": true } }, {
         $lookup: {
@@ -48,23 +48,55 @@ exports.initLocals = function (req, res, next) {
         }
     }])
 
+
     q.exec(function (err, result) {
         if (err) {
             next(err);
         }
-        res.locals.menusList = result;
-        res.locals.hidden = req.url.startsWith('/blog'); res.locals.navLinks = [
-            { label: 'Home', key: 'home', href: '/' },
-            { label: 'Blog', key: 'blog', href: '/blog' },
-            { label: 'Gallery', key: 'gallery', href: '/gallery' },
-            { label: 'Contact', key: 'contact', href: '/contact' },
-        ];
-        res.locals.user = req.user;
-        res.locals.HST = ENV.parsed.HST;
-        res.locals.blog_url = ENV.parsed.BLOG_URL;
-        res.locals.current = req.url;
-        next()
-
+        if(res.locals.isAuthenticated) {
+            let rpOptions = {
+                method: 'GET',
+                uri: ENV.parsed.API + '/user/me',
+                headers: {
+                  'x-access-token': cookies['token']
+                },
+                json: true
+              };
+              rp(rpOptions,function(error, data,  final) {
+                if(err) {
+                    next(err);
+                }
+                let menuList = _.orderBy(result,['position'],['asc']);
+                res.locals.menusList = menuList;
+                res.locals.user = req.user;
+                res.locals.authUser = final.data;
+                res.locals.HST = ENV.parsed.HST;
+                res.locals.blog_url = ENV.parsed.BLOG_URL;
+                res.locals.current = req.url;
+                res.locals.hidden = req.url.startsWith('/blog'); res.locals.navLinks = [
+                    { label: 'Home', key: 'home', href: '/' },
+                    { label: 'Blog', key: 'blog', href: '/blog' },
+                    { label: 'Gallery', key: 'gallery', href: '/gallery' },
+                    { label: 'Contact', key: 'contact', href: '/contact' },
+                ];
+                next()
+            })
+        } else {
+            let menuList = _.orderBy(result,['position'],['asc']);
+            res.locals.menusList = menuList;
+            res.locals.user = req.user;
+            res.locals.HST = ENV.parsed.HST;
+            res.locals.blog_url = ENV.parsed.BLOG_URL;
+            res.locals.current = req.url;
+            res.locals.hidden = req.url.startsWith('/blog'); res.locals.navLinks = [
+                { label: 'Home', key: 'home', href: '/' },
+                { label: 'Blog', key: 'blog', href: '/blog' },
+                { label: 'Gallery', key: 'gallery', href: '/gallery' },
+                { label: 'Contact', key: 'contact', href: '/contact' },
+            ];
+            next()
+        }
+    
     });
 };
 
