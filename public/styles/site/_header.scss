@@ -4,6 +4,11 @@
 .fa-caret-down {
   font-size: 12px;
 }
+.more-drop {
+  a {
+    cursor: pointer;
+  }
+}
 .signout-content, .signup-content {
   .sign-out-btn {
     border-color: #aaaaaa !important;
