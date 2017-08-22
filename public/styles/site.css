@@ -5870,6 +5870,9 @@ button.close {
 .fa-caret-down {
   font-size: 12px; }
 
+.more-drop a {
+  cursor: pointer; }
+
 .signout-content .sign-out-btn, .signup-content .sign-out-btn {
   border-color: #aaaaaa !important;
   border-width: 2px;

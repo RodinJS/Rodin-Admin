@@ -22,7 +22,7 @@ block content
 									.row
 										.blog-actions
 											if post.link
-												a.btn.sign-up-btn(href=post.link ? post.link : '', target="_blank") Go To Experience
+												a.btn.sign-up-btn(href=post.link ? post.link : '') Go To Experience
 											else
 												a.btn.sign-up-btn(target="_blank") Go To Experience
 
@@ -47,5 +47,5 @@ block content
 											a.fb-xfbml-parse-ignore(target='_blank', href='https://www.facebook.com/sharer/sharer.php?u=' + blog_url +'post/'+ post._id + '&src=sdkpreparse')
 												img(src='/icons/facebook.svg')
 									li
-										a(href='https://twitter.com/share', data-size='large', data-target='_blank', data-url=blog_url +'post/'+ post._id, data-hashtags=post.tags[0], data-via='Reinchard92', data-related='twitterapi,twitter')
+										a.twitter-share-button(href='https://twitter.com/intent/tweet?url=' + blog_url + 'post/' + post._id, data-via='rodin')
 											img(src='/icons/twitter.svg')
