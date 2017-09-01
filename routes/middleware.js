@@ -65,6 +65,7 @@ exports.initLocals = function (req, res, next) {
                 json: true,
             };
             rp(rpOptions, function (error, data, final) {
+                console.log(error)
                 if (error) {
                     return next(error);
                 }
