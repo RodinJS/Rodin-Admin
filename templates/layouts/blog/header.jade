@@ -44,34 +44,19 @@ nav.navbar.navbar-default.main-navbar
 							.row
 								ul.user-dropdown
 									li.dropdown.account-dropdown(data-uib-dropdown='', auto-close='outsideClick')
-										if locals.authUser
-											a#accountLabel.btn-account(type='button', data-toggle='dropdown')=locals.authUser.username
-												span.hidden-xs
-												span.accout-img-wrapper
-													span.account-img(style='background-image: url(/images/general/avatar.png);')
-												i.fa.fa-caret-down
-											.dropdown-menu.dropdown-menu-new.dropdown-menu-edit.account-dropdown-menu(uib-dropdown-menu='')
-												ul.account-action-list
-													li
-														a(href=locals.HST + 'profile')
-															| Edit
-															| Profile
-													li
-														a#logout.signout-link Sign Out
-										else
-											a#accountLabel.btn-account(type='button', data-toggle='dropdown')='Username'
-												span.hidden-xs
-												span.accout-img-wrapper
-													span.account-img(style='background-image: url(/images/general/avatar.png);')
-												i.fa.fa-caret-down
-											.dropdown-menu.dropdown-menu-new.dropdown-menu-edit.account-dropdown-menu(uib-dropdown-menu='')
-												ul.account-action-list
-													li
-														a(href=locals.HST + 'profile')
-															| Edit
-															| Profile
-													li
-														a#logout.signout-link Sign Out	
+										a#accountLabel.btn-account(type='button', data-toggle='dropdown')=locals.authUser.username
+											span.hidden-xs
+											span.accout-img-wrapper
+												span.account-img(style='background-image: url(/images/general/avatar.png);')
+											i.fa.fa-caret-down
+										.dropdown-menu.dropdown-menu-new.dropdown-menu-edit.account-dropdown-menu(uib-dropdown-menu='')
+											ul.account-action-list
+												li
+													a(href=locals.HST + 'profile')
+														| Edit
+														| Profile
+												li
+													a#logout.signout-link Sign Out
 			.side-bar
 				.side-bar-background
 				#mySidenav.sidenav
