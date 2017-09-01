@@ -69,13 +69,15 @@ exports.initLocals = function (req, res, next) {
                     return next(error);
                 }
                 let menuList = _.orderBy(result, ['position'], ['asc']);
+                res.meta = {'hello':'hello'}
                 res.locals.menusList = menuList;
                 res.locals.user = req.user;
                 res.locals.authUser = final.data;
                 res.locals.HST = ENV.parsed.HST;
                 res.locals.blog_url = ENV.parsed.BLOG_URL;
                 res.locals.current = req.url;
-                res.locals.hidden = req.url.startsWith('/blog'); res.locals.navLinks = [
+                res.locals.hidden = req.url.startsWith('/blog'); 
+                res.locals.navLinks = [
                     { label: 'Home', key: 'home', href: '/' },
                     { label: 'Blog', key: 'blog', href: '/blog' },
                     { label: 'Gallery', key: 'gallery', href: '/gallery' },
