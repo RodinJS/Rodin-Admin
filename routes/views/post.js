@@ -33,6 +33,7 @@ exports = module.exports = function (req, res) {
 			}
 			locals.blog_url = ENV.parsed.BLOG_URL;
 			locals.data.post = result;
+			title = result.title
 			next(err);
 		});
 

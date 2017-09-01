@@ -23,7 +23,7 @@ block content
 										a.fb-xfbml-parse-ignore(target='_blank', href='https://www.facebook.com/sharer/sharer.php?u=' + blog_url +'post/'+ data.post._id + '&src=sdkpreparse')
 											img(src='/icons/facebook.svg')
 								li
-									a(href='https://twitter.com/share', data-size='large', data-target='_blank', data-url=blog_url +'post/'+ data.post._id, data-hashtags=data.post.tags[0], data-via='Reinchard92', data-related='twitterapi,twitter')
+									a.twitter-share-button(href='https://twitter.com/intent/tweet?url=' + blog_url + 'post/' + data.post._id, data-via='rodinvr')
 										img(src='/icons/twitter.svg')
 
 						.comment-section
