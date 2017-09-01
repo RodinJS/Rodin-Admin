@@ -87,7 +87,7 @@ nav.navbar.navbar-default.main-navbar
 script(src='/js/jquery/jquery-1.11.3.min.js')
 script.
 	$('#logout').click(function(e){
-	$.cookie('token', null);
+	$.removeCookie('token', { domain: '.rodin.space' });
 	window.location.href = '/'
 	})
 script.
