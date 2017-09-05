@@ -8,6 +8,6 @@ ADD . /var/www/admin
 
 RUN npm install
 
-EXPOSE 2000
+EXPOSE 5000
 
 CMD ["sh", "-c", "export NODE_ENV=test"]
